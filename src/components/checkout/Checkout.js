@@ -158,18 +158,7 @@ class Checkout extends Component {
                           }
                         }}
                       />
-                      {/* {this.state.error && (
-                        <span
-                          style={{
-                            color: "red",
-                            fontWeight: 600,
-                            marginTop: "7px",
-                          }}
-                        >
-                          {" "}
-                          Invalid email
-                        </span>
-                      )} */}
+                      
                     </span>
                   ) : (
                     <div className={classes.inputInfo}>{this.state.email}</div>
@@ -216,9 +205,7 @@ class Checkout extends Component {
             </Grid>
           )
         }
-        {
-          /*Don't allow the user to access the checkout page if they don't 
-        have anything in their cart*/
+        { 
           this.state.items.length === 0 && (
             <Grid>
               <Paper style={{ minHeight: "500px" }}>
