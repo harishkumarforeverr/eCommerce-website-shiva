@@ -41,7 +41,7 @@
       "description": "Cool Shirt!",
       "photos": ["blackShirt.jpg", "whiteShirt.jpg"],
       "details": ["Perfect Shirt"],
-      "price":100,
+      "price":200,
       "variants": [
         {
           "name": "Size",
@@ -62,7 +62,7 @@
       "description": "Even Better Hoodie",
       "photos": ["greyHoodie.jpg", "blackHoodie.jpg"],
       "details": ["Even Better Hoodie Than The First One"],
-      "price":100,
+      "price":300,
       "variants": [
         {
           "name": "Size",
@@ -83,7 +83,7 @@
       "description": "The Coolest Shirt Ever!",
       "photos": ["whiteShirt.jpg", "blackShirt.jpg"],
       "details": ["This Shirt Is Cooler Than Your Shirt"],
-      "price":100,
+      "price":400,
       "variants": [
         {
           "name": "Size",
