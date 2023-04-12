@@ -184,7 +184,7 @@ class Checkout extends Component {
                           }
                         }}
                       />
-                      {this.state.error && (
+                      {/* {this.state.error && (
                         <span
                           style={{
                             color: "red",
@@ -195,7 +195,7 @@ class Checkout extends Component {
                           {" "}
                           Invalid email
                         </span>
-                      )}
+                      )} */}
                     </span>
                   ) : (
                     <div className={classes.inputInfo}>{this.state.email}</div>
@@ -230,7 +230,7 @@ class Checkout extends Component {
                   />
                   {this.state.error && (
                     <p style={{ color: "#f40" }}>
-                      Sorry, an error has occurred. Please refresh the page and
+                      Sorry, an error has occurred. Invalid detail's, Please refresh the page and
                       try again.
                     </p>
                   )}
