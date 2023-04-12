@@ -16,32 +16,11 @@ class Admin extends Component {
   }
 
   getOrders = status => {
-    fetch("/orders/" + status, {
-      credentials: "same-origin"
-    })
-      .then(res => {
-        if (res.redirected) this.props.history.push("/login");
-        else return res.json();
-      })
-      .then(orders => {
-        if (!orders) return;
-
-        if (orders.error) {
-          this.logout();
-        } else {
-          const statuses = orders.map(o => o.metadata.status || "Ordered");
-          const shipping = orders.map(o => "");
-          this.setState({ orders, statuses, shipping });
-        }
-      });
+    
   };
 
   logout = () => {
-    fetch("/api/logout", {
-      credentials: "same-origin"
-    }).then(res => {
-      this.props.history.push("/login");
-    });
+    
   };
 
   switchView = (event, view_status) => {
@@ -61,45 +40,7 @@ class Admin extends Component {
     this.setState({ shipping });
   };
 
-  updateOrder = index => {
-    const { orders, statuses, shipping } = this.state;
-    const order = orders[index],
-      status = statuses[index];
-
-    if (status === "Shipped") {
-      const tracking = shipping[index];
-      fetch("/order/ship/", {
-        method: "POST",
-        headers: new Headers({ "content-type": "application/json" }),
-        body: JSON.stringify({
-          id: order.id,
-          status: status,
-          tracking: tracking
-        })
-      })
-        .then(response => response.json())
-        .then(json => {
-          let orders = [...this.state.orders];
-          orders[index] = json;
-          this.setState({ orders });
-        });
-    } else {
-      fetch("/order/update/", {
-        method: "POST",
-        headers: new Headers({ "content-type": "application/json" }),
-        body: JSON.stringify({
-          id: order.id,
-          status: status
-        })
-      })
-        .then(response => response.json())
-        .then(json => {
-          let orders = [...this.state.orders];
-          orders[index] = json;
-          this.setState({ orders });
-        });
-    }
-  };
+  updateOrder = index =>  {}
 
   render() {
     const {

@@ -35,38 +35,7 @@ class Product extends Component {
     };
   }
 
-  componentDidMount() {
-    if (!this.props.product.stripe_id) return;
-
-    fetch("http://localhost:3001/product-info/" + this.props.product.stripe_id)
-      .then(res => res.json())
-      .then(product => {
-        if (product.data.length > 1) {
-          const attr = Object.keys(product.data[0].attributes)[0];
-          const product_skus = {
-            name: attr,
-            options: product.data.map(sku => ({
-              sku_id: sku.id,
-              price: sku.price / 100,
-              label: sku.attributes[attr]
-            }))
-          };
-          let variants = [...this.state.variants];
-          variants.push(product_skus);
-          const defaultChoice = product_skus.options[0];
-          this.setState({
-            variants,
-            sku_id: defaultChoice.sku_id,
-            price: defaultChoice.price
-          });
-        } else {
-          this.setSKU({
-            sku_id: product.data[0].id,
-            price: product.data[0].price / 100
-          });
-        }
-      })
-      .catch(error => console.error("Error:", error));
+  componentDidMount() { 
   }
 
   setSKU = sku => {

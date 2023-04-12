@@ -14,27 +14,7 @@ class Login extends Component {
   updatePassword = e => {
     this.setState({ password: e.target.value });
   };
-  logUserIn = () => {
-    this.setState({ error: null });
-    fetch("/api/login", {
-      method: "POST",
-      headers: new Headers({ "content-type": "application/json" }),
-      credentials: "same-origin",
-      body: JSON.stringify({ password: this.state.password })
-    })
-      .then(res => {
-        if (res.redirected) this.props.history.push("/admin");
-        else return res.json();
-      })
-      .then(json => {
-        if (!json) return;
-        else if (json.error)
-          this.setState({
-            password: "",
-            error: json.error.message
-          });
-      });
-  };
+  logUserIn = () =>  {}
 
   render() {
     return (

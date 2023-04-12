@@ -88,37 +88,11 @@ class Checkout extends Component {
       email: email,
     };
 
-    fetch("/order/create", {
-      method: "POST",
-      headers: new Headers({ "content-type": "application/json" }),
-      body: JSON.stringify(postBody),
-    })
-      .then((response) => response.json())
-      .then((json) => {
-        this.setState({ order_id: json.id });
-      });
+    
   };
 
   setToken = (token) => {
-    if (!this.state.order_id) {
-      this.setState({ error: true });
-      return;
-    }
-    fetch("/order/pay", {
-      method: "POST",
-      headers: new Headers({ "content-type": "application/json" }),
-      body: JSON.stringify({
-        id: this.state.order_id,
-        source: token,
-      }),
-    })
-      .then((response) => response.json())
-      .then((order) => {
-        this.props.history.push({
-          pathname: "/confirm",
-          state: { order },
-        });
-      });
+    
   };
 
   render() {
